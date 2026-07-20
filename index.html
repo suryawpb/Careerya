@@ -13,9 +13,9 @@
     --panel: #191d1f;
     --panel-2: #1f2427;
     --row-alt: #15191b;
-    --amber: #ffb400;
-    --amber-soft: #ffcf66;
-    --amber-dim: #5c4413;
+    --amber: #0052cc;
+    --amber-soft: #0066ff;
+    --amber-dim: #003d99;
     --text: #eee9df;
     --text-dim: #8b9296;
     --text-faint: #565d61;
@@ -29,7 +29,7 @@
   html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
   body {
     background-image:
-      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(255,180,0,0.06), transparent 60%),
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(0,82,204,0.06), transparent 60%),
       radial-gradient(ellipse 700px 400px at 100% 0%, rgba(95,214,138,0.04), transparent 55%);
   }
   a { color: inherit; }
@@ -49,10 +49,10 @@
   .brand { display: flex; align-items: center; gap: 14px; }
   .brand .mark {
     width: 38px; height: 38px; border-radius: 6px;
-    background: linear-gradient(155deg, var(--amber), #d98f00);
+    background: linear-gradient(155deg, var(--amber), #003d99);
     display: flex; align-items: center; justify-content: center;
-    font-family: var(--mono); font-weight: 800; color: #201400; font-size: 16px;
-    box-shadow: 0 0 0 1px rgba(255,180,0,0.35), 0 8px 18px -6px rgba(255,180,0,0.5);
+    font-family: var(--mono); font-weight: 800; color: #ffffff; font-size: 16px;
+    box-shadow: 0 0 0 1px rgba(0,82,204,0.35), 0 8px 18px -6px rgba(0,82,204,0.5);
     flex: none;
   }
   .brand .titles h1 { margin: 0; font-family: var(--mono); font-size: 19px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700; color: var(--text); }
@@ -91,7 +91,7 @@
     transition: border-color 0.15s ease, box-shadow 0.15s ease;
   }
   input[type="text"] { width: 100%; }
-  input[type="text"]:focus, select:focus { border-color: var(--amber-dim); box-shadow: 0 0 0 3px rgba(255,180,0,0.1); }
+  input[type="text"]:focus, select:focus { border-color: var(--amber-dim); box-shadow: 0 0 0 3px rgba(0,82,204,0.1); }
   input[type="text"]::placeholder { color: var(--text-faint); }
   select {
     appearance: none; -webkit-appearance: none;
@@ -107,12 +107,12 @@
   .btn-ghost:hover { border-color: var(--amber-dim); color: var(--amber-soft); }
 
   .btn-amber {
-    background: var(--amber); border: 1px solid var(--amber); color: var(--bg);
+    background: var(--amber); border: 1px solid var(--amber); color: #ffffff;
     font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
     padding: 10px 16px; border-radius: 6px; cursor: pointer; transition: all 0.15s ease;
     display: flex; align-items: center; gap: 6px;
   }
-  .btn-amber:hover { background: var(--amber-soft); transform: translateY(-1px); box-shadow: 0 6px 14px -6px rgba(255,180,0,0.6); }
+  .btn-amber:hover { background: var(--amber-soft); transform: translateY(-1px); box-shadow: 0 6px 14px -6px rgba(0,82,204,0.6); }
 
   .col-hdr {
     display: grid; grid-template-columns: 108px 1fr 190px 170px 100px; gap: 14px;
@@ -126,7 +126,7 @@
     padding: 13px 26px; border-bottom: 1px solid var(--border); transition: background 0.15s ease;
   }
   .row:nth-child(odd) { background: var(--row-alt); }
-  .row:hover { background: rgba(255,180,0,0.045); }
+  .row:hover { background: rgba(0,82,204,0.045); }
 
   .cell-time { font-family: var(--mono); font-size: 12px; color: var(--text-dim); font-variant-numeric: tabular-nums; }
   .cell-time .day { display: block; font-size: 10px; color: var(--text-faint); margin-top: 2px; }
@@ -144,11 +144,11 @@
   .cell-apply { text-align: right; }
   .apply-btn {
     display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 11px;
-    letter-spacing: 0.06em; text-transform: uppercase; color: var(--bg); background: var(--amber);
+    letter-spacing: 0.06em; text-transform: uppercase; color: #ffffff; background: var(--amber);
     padding: 7px 12px; border-radius: 5px; text-decoration: none; font-weight: 700; white-space: nowrap;
     transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
   }
-  .apply-btn:hover { background: var(--amber-soft); transform: translateY(-1px); box-shadow: 0 6px 14px -6px rgba(255,180,0,0.6); }
+  .apply-btn:hover { background: var(--amber-soft); transform: translateY(-1px); box-shadow: 0 6px 14px -6px rgba(0,82,204,0.6); }
 
   .ch { display: inline-block; }
 
