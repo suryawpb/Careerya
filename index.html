@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Careerya — Jobs for Jobseekers</title>
+<title>Job Board — Live Positions</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -48,29 +48,15 @@
   header.hdr { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 22px 26px; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
   .brand { display: flex; align-items: center; gap: 14px; }
   .brand .mark {
-    width: 50px; height: 50px; border-radius: 8px;
-    background: linear-gradient(135deg, #0052cc, #004099);
+    width: 38px; height: 38px; border-radius: 6px;
+    background: linear-gradient(155deg, var(--amber), #d98f00);
     display: flex; align-items: center; justify-content: center;
-    font-family: var(--mono); font-weight: 800; color: #ffffff; font-size: 18px;
-    box-shadow: 0 0 0 1px rgba(0,82,204,0.35), 0 8px 18px -6px rgba(0,82,204,0.5);
+    font-family: var(--mono); font-weight: 800; color: #201400; font-size: 16px;
+    box-shadow: 0 0 0 1px rgba(255,180,0,0.35), 0 8px 18px -6px rgba(255,180,0,0.5);
     flex: none;
-    position: relative;
-    overflow: hidden;
   }
-  .brand .mark::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3), transparent 50%);
-    pointer-events: none;
-  }
-  .brand .mark span {
-    position: relative;
-    z-index: 1;
-  }
-  .brand .titles h1 { margin: 0; font-family: var(--mono); font-size: 22px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 800; color: var(--text); }
-  .brand .titles p { margin: 4px 0 0; font-size: 13px; color: var(--amber); letter-spacing: 0.04em; font-weight: 500; }
+  .brand .titles h1 { margin: 0; font-family: var(--mono); font-size: 19px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700; color: var(--text); }
+  .brand .titles p { margin: 2px 0 0; font-size: 12px; color: var(--text-dim); letter-spacing: 0.03em; }
 
   .hdr-right { display: flex; align-items: center; gap: 22px; font-family: var(--mono); }
   .stat { text-align: right; }
@@ -78,7 +64,7 @@
   .stat .lbl { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-faint); margin-top: 4px; }
 
   .clock-box { display: flex; align-items: center; gap: 8px; padding: 8px 12px; border: 1px solid var(--border); border-radius: 6px; background: rgba(0,0,0,0.25); }
-  .clock-box .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 8px var(--green); animation: pulse 2s ease-in-out infinite; transition: background 0.3s e[...]
+  .clock-box .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 8px var(--green); animation: pulse 2s ease-in-out infinite; transition: background 0.3s ease; }
   @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.35} }
   .clock-box .time { font-size: 13px; color: var(--text-dim); font-variant-numeric: tabular-nums; }
 
@@ -205,10 +191,10 @@
   <div class="board-frame">
     <header class="hdr">
       <div class="brand">
-        <div class="mark"><span>C</span></div>
+        <div class="mark">JB</div>
         <div class="titles">
-          <h1>Careerya</h1>
-          <p>Just for Jobseekers</p>
+          <h1>Job Board</h1>
+          <p>Live openings, pulled straight from the sheet</p>
         </div>
       </div>
       <div class="hdr-right">
@@ -276,7 +262,8 @@
   <div class="credit">Synced live from your Google Sheet · reshuffles every visit · click any role to apply</div>
 </div>
 
-<script>window.__FALLBACK_JOBS__ = [{"t":"Account Executive, IT/ITES & Automotive, Pune","c":"Postman","l":"India","city":"India","u":"https://job-boards.greenhouse.io/postman/jobs/7748732003","d[...]
+<script>window.__FALLBACK_JOBS__ = [{"t":"Account Executive, IT/ITES & Automotive, Pune","c":"Postman","l":"India","city":"India","u":"https://job-boards.greenhouse.io/postman/jobs/7748732003","d":"2024-06-15T10:30:00"},{"t":"Senior Software Engineer - Backend","c":"TCS","l":"Bangalore, India","city":"Bangalore","u":"https://www.tcs.com/careers","d":"2024-06-20T14:15:00"}];
+</script>
 <script>(function(){
   var SHEET_ID = '1O3rfk4W9wvObjerHe6Qm7Yjxcw1LZtRUSXbW4rVW1J4';
   var GID = '1409451670';
