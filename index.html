@@ -25,12 +25,28 @@
     --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
     --sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
   }
+  
+  :root.light-mode {
+    --bg: #ffffff;
+    --panel: #f5f5f5;
+    --panel-2: #eeeeee;
+    --row-alt: #f9f9f9;
+    --text: #1a1a1a;
+    --text-dim: #555555;
+    --text-faint: #888888;
+    --border: #dddddd;
+  }
+  
   * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: var(--sans); -webkit-font-smoothing: antialiased; transition: background-color 0.3s ease, color 0.3s ease; }
   body {
     background-image:
       radial-gradient(ellipse 900px 500px at 15% -10%, rgba(0,82,204,0.06), transparent 60%),
       radial-gradient(ellipse 700px 400px at 100% 0%, rgba(95,214,138,0.04), transparent 55%);
+  }
+  :root.light-mode body {
+    background-image: none;
+    background-color: #ffffff;
   }
   a { color: inherit; }
   ::selection { background: var(--amber-dim); color: var(--amber-soft); }
@@ -43,9 +59,13 @@
     background: linear-gradient(180deg, var(--panel), var(--panel-2));
     box-shadow: 0 40px 80px -40px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.02);
     overflow: hidden;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  :root.light-mode .board-frame {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   }
 
-  header.hdr { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 22px 26px; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
+  header.hdr { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 22px 26px; border-bottom: 1px solid var(--border); flex-wrap: wrap; transition: border-color 0.3s ease; }
   .brand { display: flex; align-items: center; gap: 14px; }
   .brand .mark {
     width: 38px; height: 38px; border-radius: 6px;
@@ -63,16 +83,26 @@
   .stat .num { font-size: 22px; font-weight: 700; color: var(--amber); line-height: 1; font-variant-numeric: tabular-nums; }
   .stat .lbl { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-faint); margin-top: 4px; }
 
-  .clock-box { display: flex; align-items: center; gap: 8px; padding: 8px 12px; border: 1px solid var(--border); border-radius: 6px; background: rgba(0,0,0,0.25); }
+  .clock-box { display: flex; align-items: center; gap: 8px; padding: 8px 12px; border: 1px solid var(--border); border-radius: 6px; background: rgba(0,0,0,0.25); transition: background-color 0.3s ease, border-color 0.3s ease; }
+  :root.light-mode .clock-box { background: rgba(0,0,0,0.05); }
   .clock-box .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 8px var(--green); animation: pulse 2s ease-in-out infinite; transition: background 0.3s ease; }
   @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.35} }
   .clock-box .time { font-size: 13px; color: var(--text-dim); font-variant-numeric: tabular-nums; }
+
+  .theme-toggle {
+    background: transparent; border: 1px solid var(--border); color: var(--text-dim);
+    font-family: var(--mono); font-size: 14px; padding: 6px 10px; border-radius: 5px;
+    cursor: pointer; transition: all 0.15s ease;
+  }
+  .theme-toggle:hover { border-color: var(--amber-dim); color: var(--amber-soft); }
 
   .sync-bar {
     display: flex; align-items: center; justify-content: space-between; gap: 12px;
     padding: 9px 26px; font-family: var(--mono); font-size: 11px; color: var(--text-faint);
     border-bottom: 1px solid var(--border); background: rgba(0,0,0,0.15); letter-spacing: 0.03em; flex-wrap: wrap;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
   }
+  :root.light-mode .sync-bar { background: rgba(0,0,0,0.03); }
   .sync-bar .refresh-btn {
     background: transparent; border: 1px solid var(--border); color: var(--text-dim);
     font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase;
@@ -80,7 +110,8 @@
   }
   .sync-bar .refresh-btn:hover { border-color: var(--amber-dim); color: var(--amber-soft); }
 
-  .controls { display: flex; gap: 10px; padding: 16px 26px; border-bottom: 1px solid var(--border); background: rgba(0,0,0,0.18); flex-wrap: wrap; align-items: flex-end; }
+  .controls { display: flex; gap: 10px; padding: 16px 26px; border-bottom: 1px solid var(--border); background: rgba(0,0,0,0.18); flex-wrap: wrap; align-items: flex-end; transition: background-color 0.3s ease, border-color 0.3s ease; }
+  :root.light-mode .controls { background: rgba(0,0,0,0.02); }
   .field { display: flex; flex-direction: column; gap: 6px; }
   .field label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-faint); }
   .search-field { flex: 1 1 260px; min-width: 200px; }
@@ -88,7 +119,7 @@
   input[type="text"], select {
     background: var(--bg); border: 1px solid var(--border); color: var(--text);
     padding: 10px 12px; border-radius: 6px; font-family: var(--sans); font-size: 13.5px; outline: none;
-    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.3s ease, color 0.3s ease;
   }
   input[type="text"] { width: 100%; }
   input[type="text"]:focus, select:focus { border-color: var(--amber-dim); box-shadow: 0 0 0 3px rgba(0,82,204,0.1); }
@@ -118,12 +149,13 @@
     display: grid; grid-template-columns: 108px 1fr 190px 170px 100px; gap: 14px;
     padding: 10px 26px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
     color: var(--text-faint); border-bottom: 1px solid var(--border);
+    transition: border-color 0.3s ease, color 0.3s ease;
   }
 
   #rows { display: flex; flex-direction: column; }
   .row {
     display: grid; grid-template-columns: 108px 1fr 190px 170px 100px; gap: 14px; align-items: center;
-    padding: 13px 26px; border-bottom: 1px solid var(--border); transition: background 0.15s ease;
+    padding: 13px 26px; border-bottom: 1px solid var(--border); transition: background 0.15s ease, border-color 0.3s ease;
   }
   .row:nth-child(odd) { background: var(--row-alt); }
   .row:hover { background: rgba(0,82,204,0.045); }
@@ -179,7 +211,8 @@
 <!-- Google AdSense: replace ca-pub-XXXXXXXXXXXXXXXX with your own publisher ID -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
 <style>
-  .ad-slot { display: flex; align-items: center; justify-content: center; min-height: 90px; margin: 0; padding: 10px 26px; border-bottom: 1px solid var(--border); background: rgba(0,0,0,0.12); }
+  .ad-slot { display: flex; align-items: center; justify-content: center; min-height: 90px; margin: 0; padding: 10px 26px; border-bottom: 1px solid var(--border); background: rgba(0,0,0,0.12); transition: background-color 0.3s ease, border-color 0.3s ease; }
+  :root.light-mode .ad-slot { background: rgba(0,0,0,0.03); }
   .ad-slot .ad-label { position: absolute; margin-top: -22px; font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); }
   .ad-slot ins.adsbygoogle { width: 100%; }
   @media (max-width: 760px) { .ad-slot { padding: 10px 18px; } }
@@ -201,6 +234,7 @@
         <div class="stat"><div class="num" id="statTotal">0</div><div class="lbl">Positions</div></div>
         <div class="stat"><div class="num" id="statCompanies">0</div><div class="lbl">Companies</div></div>
         <div class="clock-box"><span class="dot"></span><span class="time" id="clock">--:--:--</span></div>
+        <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">🌙</button>
       </div>
     </header>
 
@@ -265,6 +299,24 @@
 <script>window.__FALLBACK_JOBS__ = [{"t":"Account Executive, IT/ITES & Automotive, Pune","c":"Postman","l":"India","city":"India","u":"https://job-boards.greenhouse.io/postman/jobs/7748732003","d":"2024-06-15T10:30:00"},{"t":"Senior Software Engineer - Backend","c":"TCS","l":"Bangalore, India","city":"Bangalore","u":"https://www.tcs.com/careers","d":"2024-06-20T14:15:00"}];
 </script>
 <script>(function(){
+  // ========== Dark Mode Setup ==========
+  var darkMode = localStorage.getItem('darkMode') === 'false' ? false : true;
+  function applyTheme(){
+    if(darkMode){
+      document.documentElement.classList.remove('light-mode');
+      document.getElementById('themeToggle').textContent = '🌙';
+    } else {
+      document.documentElement.classList.add('light-mode');
+      document.getElementById('themeToggle').textContent = '☀️';
+    }
+  }
+  applyTheme();
+  document.getElementById('themeToggle').addEventListener('click', function(){
+    darkMode = !darkMode;
+    localStorage.setItem('darkMode', darkMode);
+    applyTheme();
+  });
+
   var SHEET_ID = '1O3rfk4W9wvObjerHe6Qm7Yjxcw1LZtRUSXbW4rVW1J4';
   var GID = '1409451670';
   var CSV_URL = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/gviz/tq?tqx=out:csv&gid=' + GID;
