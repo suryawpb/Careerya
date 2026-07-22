@@ -710,7 +710,7 @@ var RAW = [];              // full job list, current source of truth
 
   function refreshData(isInitial){
     setSyncStatus(isInitial ? 'Loading sheet…' : 'Syncing…', true);
-    var bustUrl = CSV_URL + '&_ts=' + Date.now();
+    var bustUrl = CSV_URL + '?_ts=' + Date.now();
     fetch(bustUrl, { cache: 'no-store' })
       .then(function(res){
         if(!res.ok) throw new Error('HTTP ' + res.status);
