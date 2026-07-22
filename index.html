@@ -234,7 +234,7 @@
 
   #rows { display: flex; flex-direction: column; }
   .row {
-    display: grid; grid-template-columns: 1fr 190px 170px 100px; gap: 14px; align-items: center;
+    display: grid; grid-template-columns: 1fr 190px 170px 100px; gap: 14px; align-items: start; padding-top: 13px; padding-bottom: 13px;
     padding: 13px 26px; border-bottom: 1px solid var(--border); transition: background 0.15s ease, border-color 0.3s ease;
   }
   .row:nth-child(odd) { background: var(--row-alt); }
@@ -242,7 +242,7 @@
 
 
   .cell-title { min-width: 0; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-  .cell-title .t { font-size: 14px; font-weight: 600; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .cell-title .t { font-size: 14px; font-weight: 600; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: clip; word-break: break-word; }
   
   .urgency-tag {
     display: inline-flex; align-items: center; gap: 4px; font-family: var(--mono); font-size: 9px; 
@@ -258,8 +258,8 @@
   .urgency-tag .tag-emoji { font-size: 11px; }
   .urgency-tag .tag-label { font-size: 8px; }
 
-  .cell-company { font-family: var(--mono); font-size: 12.5px; color: var(--amber-soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .cell-city { font-size: 12.5px; color: var(--text-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .cell-company { font-family: var(--mono); font-size: 12.5px; color: var(--amber-soft); white-space: nowrap; overflow: hidden; text-overflow: clip; word-break: break-word; }
+  .cell-city { font-size: 12.5px; color: var(--text-dim); white-space: nowrap; overflow: hidden; text-overflow: clip; word-break: break-word; }
 
   .cell-apply { text-align: right; }
   .apply-btn {
