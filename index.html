@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta name="google-site-verification" content="sHGZJE7PqwVT5DHb5TkLxtE7kX6olAVjSAr-_b8Ke7s" /> 
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N9C756TR7K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-N9C756TR7K');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Careerya — Just for Job Seekers</title>
+<link rel="icon" type="image/png" href="careerya%20-%20logo%20(1).png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
+<link rel="stylesheet" href="pagination.css">
+  <style>
   :root{
     --bg: #101314;
     --panel: #191d1f;
@@ -69,7 +81,7 @@
   .brand { display: flex; align-items: center; gap: 14px; }
   .brand .logo-img {
     width: 48px; height: 48px; border-radius: 6px;
-    flex: none;
+    flex: none; object-fit: cover;
   }
   .brand .titles h1 { margin: 0; font-family: var(--mono); font-size: 19px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700; color: var(--text); }
   .brand .titles p { margin: 2px 0 0; font-size: 11px; color: var(--text-dim); letter-spacing: 0.02em; font-weight: 500; }
@@ -79,12 +91,84 @@
   .stat .num { font-size: 22px; font-weight: 700; color: var(--amber); line-height: 1; font-variant-numeric: tabular-nums; }
   .stat .lbl { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-faint); margin-top: 4px; }
 
-  .clock-box { display: flex; align-items: center; gap: 8px; padding: 8px 12px; border: 1px solid var(--border); border-radius: 6px; background: rgba(0,0,0,0.25); transition: background-color 0.3s ease, border-color 0.3s ease; }
+  .clock-box { display: flex; align-items: center; gap: 8px; padding: 8px 12px; border: 1px solid var(--border); border-radius: 6px; background: rgba(0,0,0,0.25); transition: background-color 0.3s ease; }
   :root.light-mode .clock-box { background: rgba(0,0,0,0.05); }
   .clock-box .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 8px var(--green); animation: pulse 2s ease-in-out infinite; transition: background 0.3s ease; }
   @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.35} }
   .clock-box .time { font-size: 13px; color: var(--text-dim); font-variant-numeric: tabular-nums; }
 
+  .telegram-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #229ED9;
+  border: 1px solid #229ED9;
+  color: #ffffff;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+  .telegram-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px 26px;
+  background: rgba(34,158,217,0.08);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s ease;
+}
+
+.telegram-banner-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.telegram-banner-text strong {
+  font-size: 14px;
+  color: var(--text);
+}
+
+.telegram-banner-text span {
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+.telegram-banner-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #229ED9;
+  color: #ffffff;
+  padding: 9px 14px;
+  border-radius: 6px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.telegram-banner-btn:hover {
+  background: #168AC0;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px -6px rgba(34,158,217,0.6);
+}
+
+.telegram-btn:hover {
+  background: #168AC0;
+  border-color: #168AC0;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px -6px rgba(34,158,217,0.6);
+}
   .theme-toggle {
     background: transparent; border: 1px solid var(--border); color: var(--text-dim);
     font-family: var(--mono); font-size: 14px; padding: 6px 10px; border-radius: 5px;
@@ -106,7 +190,7 @@
   }
   .sync-bar .refresh-btn:hover { border-color: var(--amber-dim); color: var(--amber-soft); }
 
-  .controls { display: flex; gap: 10px; padding: 16px 26px; border-bottom: 1px solid var(--border); background: rgba(0,0,0,0.18); flex-wrap: wrap; align-items: flex-end; transition: background-color 0.3s ease, border-color 0.3s ease; }
+  .controls { display: flex; gap: 10px; padding: 16px 26px; border-bottom: 1px solid var(--border); background: rgba(0,0,0,0.18); flex-wrap: wrap; align-items: flex-end; transition: background-color 0.3s ease; }
   :root.light-mode .controls { background: rgba(0,0,0,0.02); }
   .field { display: flex; flex-direction: column; gap: 6px; }
   .field label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-faint); }
@@ -159,12 +243,22 @@
   .cell-time { font-family: var(--mono); font-size: 12px; color: var(--text-dim); font-variant-numeric: tabular-nums; }
   .cell-time .day { display: block; font-size: 10px; color: var(--text-faint); margin-top: 2px; }
 
-  .cell-title { min-width: 0; }
+  .cell-title { min-width: 0; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
   .cell-title .t { font-size: 14px; font-weight: 600; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .cell-title .new-tag {
-    display: inline-block; font-family: var(--mono); font-size: 9px; letter-spacing: 0.08em; color: #1b2a1f;
-    background: var(--green); padding: 1px 5px; border-radius: 3px; margin-left: 8px; vertical-align: middle; font-weight: 700;
+  
+  .urgency-tag {
+    display: inline-flex; align-items: center; gap: 4px; font-family: var(--mono); font-size: 9px; 
+    letter-spacing: 0.08em; font-weight: 700; padding: 2px 6px; border-radius: 3px; 
+    white-space: nowrap; flex-shrink: 0;
   }
+  .urgency-tag.fresh { background: #5fd68a; color: #1b2a1f; }
+  .urgency-tag.hot { background: #ff6b6b; color: #ffffff; }
+  .urgency-tag.chill { background: #4dabf7; color: #ffffff; }
+  .urgency-tag.ticking { background: #ffd93d; color: #1a1a1a; }
+  .urgency-tag.expire { background: #ff6b9d; color: #ffffff; }
+  
+  .urgency-tag .tag-emoji { font-size: 11px; }
+  .urgency-tag .tag-label { font-size: 8px; }
 
   .cell-company { font-family: var(--mono); font-size: 12.5px; color: var(--amber-soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .cell-city { font-size: 12.5px; color: var(--text-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -189,7 +283,19 @@
 
   .credit { text-align: center; margin-top: 22px; font-family: var(--mono); font-size: 11px; color: var(--text-faint); letter-spacing: 0.04em; }
 
+  /* Ads hidden for now */
+  .ad-slot { display: none !important; }
+
   @media (max-width: 760px) {
+    .telegram-banner {
+  flex-direction: column;
+  align-items: stretch;
+  padding: 14px 18px;
+}
+
+.telegram-banner-btn {
+  width: 100%;
+}
     .col-hdr { display: none; }
     .row { grid-template-columns: 1fr; gap: 6px; padding: 16px 18px; position: relative; }
     .cell-time { order: 3; } .cell-title { order: 1; } .cell-company { order: 2; } .cell-city { order: 2; }
@@ -201,18 +307,13 @@
     .sync-bar { padding: 9px 18px; }
     .board-footer { padding: 14px 18px; }
     .hdr-right { width: 100%; justify-content: space-between; }
+    .cell-title { flex-direction: column; align-items: flex-start; }
   }
 </style>
-
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c4ef2f956fb14980a90834bf17dc3d49"}'></script><!-- End Cloudflare Web Analytics -->
 <!-- Google AdSense: replace ca-pub-XXXXXXXXXXXXXXXX with your own publisher ID -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
-<style>
-  .ad-slot { display: flex; align-items: center; justify-content: center; min-height: 90px; margin: 0; padding: 10px 26px; border-bottom: 1px solid var(--border); background: rgba(0,0,0,0.12); transition: background-color 0.3s ease, border-color 0.3s ease; }
-  :root.light-mode .ad-slot { background: rgba(0,0,0,0.03); }
-  .ad-slot .ad-label { position: absolute; margin-top: -22px; font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); }
-  .ad-slot ins.adsbygoogle { width: 100%; }
-  @media (max-width: 760px) { .ad-slot { padding: 10px 18px; } }
-</style>
+<!-- Uncomment when ready to enable ads -->
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
 </head>
 <body>
 
@@ -220,41 +321,42 @@
   <div class="board-frame">
     <header class="hdr">
       <div class="brand">
-        <svg class="logo-img" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-          <!-- Blue circle background -->
-          <circle cx="150" cy="150" r="140" fill="#0052cc"/>
-          
-          <!-- White spiral/aperture shape -->
-          <g fill="#ffffff" opacity="0.95">
-            <!-- Top right segment -->
-            <path d="M 150 30 Q 210 80 220 150 Q 215 100 180 60 Q 170 45 150 30 Z"/>
-            <!-- Right segment -->
-            <path d="M 240 130 Q 260 180 240 220 Q 230 190 210 160 Q 200 140 240 130 Z"/>
-            <!-- Bottom segment -->
-            <path d="M 180 240 Q 130 260 80 250 Q 120 240 160 220 Q 175 210 180 240 Z"/>
-            <!-- Left segment -->
-            <path d="M 60 170 Q 40 130 60 90 Q 80 120 110 150 Q 120 160 60 170 Z"/>
-            <!-- Center top-left arc -->
-            <path d="M 130 80 Q 100 110 95 150 Q 110 120 140 100 Q 145 85 130 80 Z"/>
-          </g>
-        </svg>
+        <img class="logo-img" src="careerya%20-%20logo%20(1).png" alt="Careerya Logo">
         <div class="titles">
           <h1>CAREERYA</h1>
           <p>just for job seekers</p>
         </div>
       </div>
       <div class="hdr-right">
-        <div class="stat"><div class="num" id="statTotal">0</div><div class="lbl">Positions</div></div>
-        <div class="stat"><div class="num" id="statCompanies">0</div><div class="lbl">Companies</div></div>
-        <div class="clock-box"><span class="dot"></span><span class="time" id="clock">--:--:--</span></div>
-        <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">🌙</button>
-      </div>
+  <div class="stat"><div class="num" id="statTotal">0</div><div class="lbl">Positions</div></div>
+  <div class="stat"><div class="num" id="statCompanies">0</div><div class="lbl">Companies</div></div>
+  <div class="clock-box"><span class="dot"></span><span class="time" id="clock">--:--:--</span></div>
+
+  <a href="https://t.me/careerya_jfjs" target="_blank" rel="noopener noreferrer" class="telegram-btn">
+    📲 Join Telegram
+  </a>
+
+  <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">🌙</button>
+</div>
     </header>
 
     <div class="sync-bar">
       <span id="syncStatus">Connecting…</span>
       <button class="refresh-btn" id="refreshBtn">↻ Refresh now</button>
     </div>
+    <div class="telegram-banner">
+  <div class="telegram-banner-text">
+    <strong>🚀 Get the latest job alerts instantly</strong>
+    <span>📲 Join Careerya on Telegram and never miss a new opportunity.</span>
+  </div>
+
+  <a href="https://t.me/careerya_jfjs"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="telegram-banner-btn">
+    JOIN TELEGRAM →
+  </a>
+</div>
 
     <div class="controls">
       <div class="field search-field">
@@ -270,10 +372,11 @@
         <select id="companySelect"><option value="">All companies</option></select>
       </div>
       <button class="btn-ghost" id="clearBtn">Clear filters</button>
-      <button class="btn-amber" id="shuffleBtn">⟲ Shuffle</button>
+      
     </div>
 
-    <div class="ad-slot">
+    <!-- Ad slot 1 - Hidden for now -->
+    <div class="ad-slot" id="adSlot1">
       <span class="ad-label">Advertisement</span>
       <ins class="adsbygoogle"
            style="display:block"
@@ -293,7 +396,8 @@
       <div class="small">Try a broader search or clear filters above</div>
     </div>
 
-    <div class="ad-slot" style="border-top: 1px solid var(--border); border-bottom: none;">
+    <!-- Ad slot 2 - Hidden for now -->
+    <div class="ad-slot" id="adSlot2" style="border-top: 1px solid var(--border); border-bottom: none;">
       <span class="ad-label">Advertisement</span>
       <ins class="adsbygoogle"
            style="display:block"
@@ -303,14 +407,14 @@
            data-full-width-responsive="true"></ins>
     </div>
 
-    <div class="board-footer"><span class="count-note" id="countNote">Loading…</span></div>
+    <div class="board-footer">   <span class="count-note" id="countNote">Loading…</span>   <div class="pagination" id="pagination" style="display:none">     <button class="view-all-btn" id="viewMoreBtn">View More →</button>   </div> </div>
   </div>
 
-  <div class="credit">Synced live from your Google Sheet · reshuffles every visit · click any role to apply</div>
+  <div class="credit">💼 "The best time to apply was yesterday. The second best time is now." <a href="https://t.me/careerya_jfjs" target="_blank" rel="noopener noreferrer" style="color: var(--amber-soft); text-decoration: none;">Follow us on Telegram →</a></div>
 </div>
 
-<script>window.__FALLBACK_JOBS__ = [{"t":"Account Executive, IT/ITES & Automotive, Pune","c":"Postman","l":"India","city":"India","u":"https://job-boards.greenhouse.io/postman/jobs/7748732003","d":"2024-06-15T10:30:00"},{"t":"Senior Software Engineer - Backend","c":"TCS","l":"Bangalore, India","city":"Bangalore","u":"https://www.tcs.com/careers","d":"2024-06-20T14:15:00"}];
-</script>
+<script src="job-categories.js"></script>
+  <script src="company-logo.js"></script>
 <script>(function(){
   // ========== Dark Mode Setup ==========
   var darkMode = localStorage.getItem('darkMode') === 'false' ? false : true;
@@ -335,10 +439,20 @@
   var CSV_URL = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/gviz/tq?tqx=out:csv&gid=' + GID;
   var REFRESH_MS = 5 * 60 * 1000; // auto re-fetch every 5 minutes
 
-  var RAW = [];              // full job list, current source of truth
-  var state = { q: '', city: '', company: '', order: [] };
+var RAW = [];              // full job list, current source of truth
+  var state = { q: '', city: '', company: '' };
+  var PAGE_SIZE = 99;
+  var visibleCount = PAGE_SIZE;
   var animatedRows = new WeakSet();
   var FLAP_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+
+  function getTagByDays(daysOld){
+    for(var i = 0; i < JOB_TAGS.length; i++){
+      var tag = JOB_TAGS[i];
+      if(daysOld >= tag.min && daysOld <= tag.max) return tag;
+    }
+    return JOB_TAGS[JOB_TAGS.length - 1];
+  }
 
   // ---------- CSV parsing (RFC4180-ish, handles quoted commas/newlines) ----------
   function parseCSV(text){
@@ -412,16 +526,6 @@
     return out;
   }
 
-  function shuffledIndices(n){
-    var arr = [];
-    for(var i = 0; i < n; i++) arr.push(i);
-    for(var i = n - 1; i > 0; i--){
-      var j = Math.floor(Math.random() * (i + 1));
-      var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
-    }
-    return arr;
-  }
-
   function uniqueSorted(arr){
     var seen = {}, out = [];
     arr.forEach(function(v){ if(v && !seen[v]){ seen[v]=true; out.push(v);} });
@@ -443,17 +547,18 @@
   }
 
   function timeAgo(iso){
-    if(!iso) return { rel: '—', day: '', isNew:false };
+    if(!iso) return { rel: '—', day: '', daysOld: 999 };
     var d = new Date(iso);
-    if(isNaN(d.getTime())) return { rel: '—', day: '', isNew:false };
+    if(isNaN(d.getTime())) return { rel: '—', day: '', daysOld: 999 };
     var now = new Date();
     var diffH = (now - d) / 36e5;
+    var daysOld = Math.floor(diffH / 24);
     var rel;
     if (diffH < 1) rel = Math.max(1, Math.round(diffH*60)) + 'm ago';
     else if (diffH < 24) rel = Math.round(diffH) + 'h ago';
-    else rel = Math.round(diffH/24) + 'd ago';
+    else rel = daysOld + 'd ago';
     var day = d.toLocaleDateString(undefined, {day:'2-digit', month:'short'});
-    return { rel: rel, day: day, isNew: diffH >= 0 && diffH < 48 };
+    return { rel: rel, day: day, daysOld: daysOld };
   }
 
   function escapeHtml(s){
@@ -464,10 +569,7 @@
 
   function applyFilters(){
     var q = state.q.trim().toLowerCase();
-    var order = state.order.length === RAW.length ? state.order : shuffledIndices(RAW.length);
-    state.order = order;
-    var ordered = order.map(function(idx){ return RAW[idx]; });
-    return ordered.filter(function(j){
+    return RAW.filter(function(j){
       if(state.city && j.city !== state.city) return false;
       if(state.company && j.c !== state.company) return false;
       if(q){
@@ -537,12 +639,13 @@
     titleInner.dataset.final = j.t;
     titleInner.textContent = j.t;
     cTitle.appendChild(titleInner);
-    if(ta.isNew){
-      var tag = document.createElement('span');
-      tag.className = 'new-tag';
-      tag.textContent = 'NEW';
-      cTitle.appendChild(tag);
-    }
+    
+    // Add urgency tag inline
+    var tag = getTagByDays(ta.daysOld);
+    var tagEl = document.createElement('span');
+    tagEl.className = 'urgency-tag ' + tag.color;
+    tagEl.innerHTML = '<span class="tag-emoji">' + tag.emoji + '</span><span class="tag-label">' + tag.name + '</span>';
+    cTitle.appendChild(tagEl);
 
     var cCompany = document.createElement('div');
     cCompany.className = 'cell-company';
@@ -569,29 +672,40 @@
     return row;
   }
 
-  function render(){
-    var list = applyFilters();
+ function render(){
+    var filtered = applyFilters();
+    var list = filtered.slice(0, visibleCount);
     var rowsEl = document.getElementById('rows');
     rowsEl.innerHTML = '';
-    document.getElementById('emptyState').style.display = list.length === 0 ? 'block' : 'none';
+    document.getElementById('emptyState').style.display = filtered.length === 0 ? 'block' : 'none';
+    var paginationEl = document.getElementById('pagination');
+
+    if(filtered.length === 0){
+      document.getElementById('countNote').textContent = 'No positions match those filters';
+      paginationEl.style.display = 'none';
+      return;
+    }
 
     var frag = document.createDocumentFragment();
     var obs = getObserver();
+
+    // Render jobs in original order (no sorting)
     list.forEach(function(j){
       var row = buildRow(j);
       frag.appendChild(row);
       obs.observe(row);
     });
+
     rowsEl.appendChild(frag);
 
-    document.getElementById('countNote').textContent =
-      'Showing all ' + list.length + (list.length !== RAW.length ? (' (filtered from ' + RAW.length + ')') : '') + ' — shuffled';
-  }
-
-  function reshuffle(){
-    state.order = shuffledIndices(RAW.length);
-    animatedRows = new WeakSet();
-    render();
+    if(filtered.length > visibleCount){
+      document.getElementById('countNote').textContent = 'Showing ' + list.length + ' of ' + filtered.length + ' positions';
+      paginationEl.style.display = 'flex';
+    } else {
+      document.getElementById('countNote').textContent =
+        'Showing ' + filtered.length + (filtered.length !== RAW.length ? (' out of ' + RAW.length) : ' positions');
+      paginationEl.style.display = 'none';
+    }
   }
 
   function setSyncStatus(text, ok){
@@ -614,8 +728,6 @@
         var jobs = rowsToJobs(parseCSV(text));
         if(!jobs.length) throw new Error('No rows parsed');
         RAW = jobs;
-        state.order = shuffledIndices(RAW.length);
-        animatedRows = new WeakSet();
 
         document.getElementById('statTotal').textContent = RAW.length;
         var companies = uniqueSorted(RAW.map(function(j){ return j.c; }));
@@ -631,7 +743,6 @@
         console.warn('Sheet fetch failed, using fallback snapshot:', err);
         if(RAW.length === 0 && window.__FALLBACK_JOBS__){
           RAW = window.__FALLBACK_JOBS__;
-          state.order = shuffledIndices(RAW.length);
           document.getElementById('statTotal').textContent = RAW.length;
           var companies = uniqueSorted(RAW.map(function(j){ return j.c; }));
           document.getElementById('statCompanies').textContent = companies.length;
@@ -643,23 +754,30 @@
       });
   }
 
-  function init(){
+ function init(){
     var searchInput = document.getElementById('searchInput');
     var debTimer;
     searchInput.addEventListener('input', function(){
       clearTimeout(debTimer);
-      debTimer = setTimeout(function(){ state.q = searchInput.value; render(); }, 180);
+      debTimer = setTimeout(function(){ state.q = searchInput.value; visibleCount = PAGE_SIZE; render(); }, 180);
     });
-    document.getElementById('citySelect').addEventListener('change', function(e){ state.city = e.target.value; render(); });
-    document.getElementById('companySelect').addEventListener('change', function(e){ state.company = e.target.value; render(); });
+    document.getElementById('citySelect').addEventListener('change', function(e){ state.city = e.target.value; visibleCount = PAGE_SIZE; render(); });
+    document.getElementById('companySelect').addEventListener('change', function(e){ state.company = e.target.value; visibleCount = PAGE_SIZE; render(); });
     document.getElementById('clearBtn').addEventListener('click', function(){
-      state.q=''; state.city=''; state.company='';
+      state.q=''; state.city=''; state.company=''; visibleCount = PAGE_SIZE;
       searchInput.value = '';
       document.getElementById('citySelect').value = '';
       document.getElementById('companySelect').value = '';
       render();
     });
-    document.getElementById('shuffleBtn').addEventListener('click', reshuffle);
+
+    document.getElementById('viewMoreBtn').addEventListener('click', function(){
+      visibleCount += PAGE_SIZE;
+      render();
+    });
+
+    document.getElementById('refreshBtn').addEventListener('click', function(){ refreshData(false); });
+    
     document.getElementById('refreshBtn').addEventListener('click', function(){ refreshData(false); });
 
     function tickClock(){
@@ -674,13 +792,6 @@
 
     refreshData(true);
     setInterval(function(){ refreshData(false); }, REFRESH_MS);
-
-    // Render AdSense units (safe no-op if adsbygoogle.js hasn't loaded, e.g. ad blocker)
-    try {
-      document.querySelectorAll('ins.adsbygoogle').forEach(function(){
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-      });
-    } catch (e) { console.warn('AdSense not loaded:', e); }
   }
 
   if(document.readyState === 'loading'){
