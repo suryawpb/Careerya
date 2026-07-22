@@ -242,7 +242,7 @@
 
 
   .cell-title { min-width: 0; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-  .cell-title .t { font-size: 14px; font-weight: 600; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: clip; word-break: break-word; }
+  .cell-title .t { font-size: 14px; font-weight: 600; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: clip; word-break: break-word; min-width: 0; flex: 1 1 100%; }
   
   .urgency-tag {
     display: inline-flex; align-items: center; gap: 4px; font-family: var(--mono); font-size: 9px; 
@@ -259,7 +259,7 @@
   .urgency-tag .tag-label { font-size: 8px; }
 
   .cell-company { font-family: var(--mono); font-size: 12.5px; color: var(--amber-soft); white-space: nowrap; overflow: hidden; text-overflow: clip; word-break: break-word; }
-  .cell-city { font-size: 12.5px; color: var(--text-dim); white-space: nowrap; overflow: hidden; text-overflow: clip; word-break: break-word; }
+  .cell-city { font-size: 12.5px; color: var(--text-dim); white-space: nowrap; overflow: hidden; text-overflow: clip; word-break: break-word; align-self: start; min-width: 0; }
 
   .cell-apply { text-align: right; }
   .apply-btn {
